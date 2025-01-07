@@ -42,6 +42,13 @@ disable_test_id_escaping_and_forfeit_all_rights_to_community_support = true
 norecursedirs = [".git", ".venv"]
 python_files = "test_*.py"
 python_functions = "test_*"
+merkers = [
+    "regression: Регрессионные тесты"
+]
+addopts = [
+    "-v",
+    "-s"
+]
 
 [tool.ruff]
 exclude = [
