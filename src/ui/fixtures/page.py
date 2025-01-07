@@ -1,3 +1,5 @@
+import allure
+import pytest
 from playwright.sync_api import (
     sync_playwright,
     Playwright,
@@ -5,7 +7,7 @@ from playwright.sync_api import (
     Browser,
     BrowserContext,
 )
-from pytest import Parser, FixtureRequest, fixture
+from pytest import Parser, FixtureRequest
 
 
 def pytest_addoption(parser: Parser) -> None:
@@ -39,7 +41,8 @@ def pytest_addoption(parser: Parser) -> None:
     )
 
 
-@fixture(scope="class")
+@allure.step("Инициализация браузера")
+@pytest.fixture(scope="class")
 def browser(request: FixtureRequest) -> Page:
     playwright: Playwright = sync_playwright().start()
     if request.config.getoption("bn") == "firefox":
@@ -55,7 +58,7 @@ def browser(request: FixtureRequest) -> Page:
 
     for _ in browser.contexts:
         context.close()
-    
+
     browser.close()
     playwright.stop()
 
