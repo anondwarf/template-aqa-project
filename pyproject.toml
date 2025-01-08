@@ -10,6 +10,7 @@ requires-python = ">=3.13"
 dependencies = [
 ]
 
+
 [tool.poetry]
 package-mode = false
 
@@ -39,6 +40,7 @@ disable_test_id_escaping_and_forfeit_all_rights_to_community_support = true
 norecursedirs = [".git", ".venv"]
 python_files = "test_*.py"
 python_functions = "test_*"
+
 [tool.ruff]
 exclude = [
     ".bzr",
@@ -81,19 +83,6 @@ dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 "__init__.py" = ["E402"]
 "**/{tests,docs,tools}/*" = ["E402"]
 
-[tool.black]
-line-length = 79
-target-version = ["py313"]
-
-[tool.isort]
-profile = "black"
-py_version = "all"
-
-[tool.mypy]
-python_version = "3.13"
-warn_return_any = true
-warn_unused_configs = true
-
 [tool.ruff.format]
 quote-style = "double"
 indent-style = "space"
@@ -102,6 +91,15 @@ line-ending = "auto"
 docstring-code-format = false
 docstring-code-line-length = "dynamic"
 
-[build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+[tool.black]
+line-length = 79
+target-version = ["py313"]
+
+[tool.isort]
+profile = "black"
+py_version = "3.13"
+
+[tool.mypy]
+python_version = "3.13"
+warn_return_any = true
+warn_unused_configs = true
