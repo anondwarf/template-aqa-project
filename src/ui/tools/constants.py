@@ -1,4 +1,7 @@
 import os
+from pathlib import Path
+
+from src.utils.tools import Constants as Const
 
 
 class Constants(object):
@@ -13,3 +16,5 @@ class Constants(object):
         raise EnvironmentError(
             "AUTH_LOGIN и/или AUTH_PASSWORD должны быть указаны"
         )
+
+    browser_state: Path = Const.tmp_path / "browser_state.json"
